@@ -38,7 +38,7 @@ async function connect () {
   await db.sync({ force: true })
   const [ pizza, hotDog, salad ] = await Food.bulkCreate(fakeFoods, { returning: true })
   const [ dough, sausage, lettuce, mustard ] = await Ingredient.bulkCreate(fakeIngredients, { returning: true })
-  console.log('MAGIC PIZZA', pizza.__proto__)
+  // console.log('MAGIC PIZZA', pizza.__proto__)
   await Promise.all([
     pizza.addIngredient(dough),
     pizza.addIngredient(sausage),
